@@ -8,6 +8,7 @@
         <?php require_once('components/header.php')?>
 
         <main>
+            <div style="margin-top: 200px;"></div>
             <div class="container">
                 <div class="row">
                     <div class="col text-center" id="log">
