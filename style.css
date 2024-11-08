@@ -7,6 +7,11 @@ body {
     flex-direction: column;
 }
 
+header {
+    width: 100%;
+    margin : 0;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -93,7 +98,25 @@ footer a:hover, header a:hover {
     font-size: 14px;
 }
 
+#profil {
+    padding: 50px;
+}
+
+#profil h3 {
+    font-weight: 500;
+}
+
 #profil label {
     font-size: 20px;
     font-weight: bold;
+}
+
+#profil button {
+    background-color: #E0E0E0;
+    color: #777777;
+    border-radius: 10px;
+    width: 156px;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 20px;
 }
