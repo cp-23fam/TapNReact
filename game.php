@@ -20,7 +20,7 @@
   <script src="script/missing-dot.js"></script>
 </head>
 
-<body>
+<body onload="init();">
   <header>
     <!-- place navbar here -->
   </header>
