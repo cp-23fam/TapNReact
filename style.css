@@ -131,10 +131,22 @@ footer a:hover, header a:hover {
 
 @keyframes color-change-2x {
     0% {
-      background: #5A7D9A;
+      background: #76a4ca;
     }
     100% {
-      background: #777777;
+      background: #35495a;
     }
   }
   
+.name-footer {
+    animation: name-footer 2s linear infinite alternate both;
+}
+
+@keyframes name-footer {
+    0% {
+        color: #0000ff;
+    }
+    100% {
+        color: #ff0000;
+    }
+}
