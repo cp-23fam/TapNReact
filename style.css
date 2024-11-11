@@ -120,3 +120,21 @@ footer a:hover, header a:hover {
         padding: 2vw;
     }
 }
+
+
+
+/* Keyframes */
+
+.color-change-2x {
+    animation: color-change-2x 0.5s linear infinite alternate both;
+}
+
+@keyframes color-change-2x {
+    0% {
+      background: #1900ff;
+    }
+    100% {
+      background: #ff0000;
+    }
+  }
+  

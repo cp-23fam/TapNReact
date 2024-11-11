@@ -15,14 +15,14 @@
                     <!-- Première section : Nom d'utilisateur -->
                     <div class="col-12 col-md-6 col-xxl-3 mb-4 text-md-start text-center" id="profil">
                         <label for="username" class="form-label">Nom d'utilisateur</label>
-                        <input id="username" class="form-control" style="max-width: 300px;" type="text" name="username" placeholder="Nom d'utilisateur">
+                        <input id="username" class="text-center form-control" style="max-width: 300px;" type="text" name="username" placeholder="Nom d'utilisateur">
                         <button type="button" class="btn btn-secondary mt-2">Modifier</button>
                     </div>
 
                     <!-- Deuxième section : Date de naissance -->
                     <div class="col-12 col-md-6 col-xxl-3 mb-4 text-md-start text-center" id="profil">
                         <label for="birthday" class="form-label">Date de naissance</label>
-                        <input id="birthday" class="form-control" style="max-width: 300px;" type="date" name="birthday">
+                        <input id="birthday" class="text-center form-control" style="max-width: 300px;" type="date" name="birthday">
                         <button type="button" class="btn btn-secondary mt-2">Modifier</button>
                     </div>
                 </div>

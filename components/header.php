@@ -1,4 +1,4 @@
-<header class="navbar">
+<header class="navbar color-change-2x">
     <div class="container-fluid">
         <div class="row w-100 text-center text-md-start">
             <div class="col-6 col-md-2 col-xl-1 links">
