@@ -7,21 +7,29 @@
     <body>
         <?php require_once('components/header.php')?>
 
-        <main>
-            <div id="profil">
-                <h3>Profil</h3><br>
-                <label>Nom d'utilisateur</label><br>
-                <input class="border-0 mt-1" type="text" name="username" placeholder="Nom d'utilisateur">
-                <button type="button" class="border-0 text-center">Modifier</button>
-                <br><br>
+        <main class="d-flex justify-content-center justify-content-md-start align-items-center align-items-md-start py-4">
+            <div class="container">
+                <div class="row w-100">
+                    <h3 class="col-12 mb-4 text-md-start text-center">Profil</h3>
 
-                <label>Date de naissance</label><br>
-                <input class="border-0 mt-1" type="date" name="birthday">
-                <button type="button" class="border-0 text-center">Modifier</button>
+                    <!-- Première section : Nom d'utilisateur -->
+                    <div class="col-12 col-md-6 col-xxl-3 mb-4 text-md-start text-center" id="profil">
+                        <label for="username" class="form-label">Nom d'utilisateur</label>
+                        <input id="username" class="form-control" style="max-width: 300px;" type="text" name="username" placeholder="Nom d'utilisateur">
+                        <button type="button" class="btn btn-secondary mt-2">Modifier</button>
+                    </div>
+
+                    <!-- Deuxième section : Date de naissance -->
+                    <div class="col-12 col-md-6 col-xxl-3 mb-4 text-md-start text-center" id="profil">
+                        <label for="birthday" class="form-label">Date de naissance</label>
+                        <input id="birthday" class="form-control" style="max-width: 300px;" type="date" name="birthday">
+                        <button type="button" class="btn btn-secondary mt-2">Modifier</button>
+                    </div>
+                </div>
             </div>
-            
         </main>
-        
+
+
 
         <?php require_once('components/footer.php')?>
     </body>
