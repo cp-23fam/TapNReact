@@ -25,7 +25,6 @@ DROP TABLE IF EXISTS `portes-ouvertes`.`Points` ;
 
 CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`Points` (
   `idPoints` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `User_idUser` INT UNSIGNED NOT NULL,
   `missing_dot` MEDIUMINT UNSIGNED NULL DEFAULT 0,
   `same_color` MEDIUMINT UNSIGNED NULL DEFAULT 0,
   `endless_number` MEDIUMINT UNSIGNED NULL DEFAULT 0,
@@ -33,13 +32,7 @@ CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`Points` (
   `pattern` MEDIUMINT UNSIGNED NULL DEFAULT 0,
   `reaction` MEDIUMINT UNSIGNED NULL DEFAULT 0,
   `missing_color` MEDIUMINT UNSIGNED NULL DEFAULT 0,
-  PRIMARY KEY (`idPoints`, `User_idUser`),
-  INDEX `fk_Points_User1_idx` (`User_idUser` ASC) VISIBLE,
-  CONSTRAINT `fk_Points_User1`
-    FOREIGN KEY (`User_idUser`)
-    REFERENCES `portes-ouvertes`.`User` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`idPoints`))
 ENGINE = InnoDB;
 
 
@@ -52,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`User` (
   `idUser` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `date_naissance` DATE NOT NULL,
-  `password` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(64) NOT NULL,
   `Points_idPoints` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`idUser`),
   INDEX `fk_User_Points_idx` (`Points_idPoints` ASC) VISIBLE,
@@ -60,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`User` (
   CONSTRAINT `fk_User_Points`
     FOREIGN KEY (`Points_idPoints`)
     REFERENCES `portes-ouvertes`.`Points` (`idPoints`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

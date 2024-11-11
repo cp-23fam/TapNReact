@@ -1,12 +1,3 @@
-<?php 
-    session_start();
-
-    // if($_SESSION['account'] == "") {
-    //     header('Location: login.php');
-    //     exit();
-    // }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>

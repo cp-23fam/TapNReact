@@ -7,11 +7,6 @@ body {
     flex-direction: column;
 }
 
-header {
-    width: 100%;
-    margin : 0;
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -39,7 +34,12 @@ header {
 }
 
 main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
+    background-color: #ffffff;
 }
 
 footer {
@@ -47,8 +47,7 @@ footer {
     font-size: 16px;
     font-weight: 500;
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    flex-shrink: 0;
 }
 
 footer a {
@@ -60,24 +59,21 @@ footer a:hover, header a:hover {
     text-decoration: underline;
 }
 
-#sign, #log, #profil {
+#sign, #log {
     font-family: 'Poppins', sans-serif;
 }
 
-#sign input, #log input, #profil input {
+#sign input, #log input {
     background-color: #E0E0E0;
     border-radius: 5px;
     color: #777777;
     width: 380px;
     height: 50px;
     font-size: 20px;
-}
-
-#sign input, #log input {
     margin-bottom: 32px;
 }
 
-#sign input::placeholder, #log input::placeholder, #profil input::placeholder {
+#sign input::placeholder, #log input::placeholder {
     color: #777777;
 }
 
@@ -96,27 +92,4 @@ footer a:hover, header a:hover {
     text-decoration: none;
     color: #777777;
     font-size: 14px;
-}
-
-#profil {
-    padding: 50px;
-}
-
-#profil h3 {
-    font-weight: 500;
-}
-
-#profil label {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-#profil button {
-    background-color: #E0E0E0;
-    color: #777777;
-    border-radius: 10px;
-    width: 156px;
-    height: 50px;
-    font-size: 20px;
-    margin-left: 20px;
 }
