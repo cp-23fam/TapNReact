@@ -126,15 +126,15 @@ footer a:hover, header a:hover {
 /* Keyframes */
 
 .color-change-2x {
-    animation: color-change-2x 0.5s linear infinite alternate both;
+    animation: color-change-2x 60s linear infinite alternate both;
 }
 
 @keyframes color-change-2x {
     0% {
-      background: #1900ff;
+      background: #5A7D9A;
     }
     100% {
-      background: #ff0000;
+      background: #777777;
     }
   }
   
