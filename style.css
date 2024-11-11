@@ -11,43 +11,36 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px;
+    padding: 5vh 5vw;
     background-color: #5A7D9A;
-    font-size: 32px;
+    font-size: 2rem;
     width: 100%;
-    height: 165px;
     box-sizing: border-box;
 }
 
-
-.navbar a {
-    margin-left: 40px;
+.navbar a, .navbar button {
     text-decoration: none;
     color: black;
     font-weight: 500;
 }
 
-.navbar button {
-    color: black;
-    font-size: 32px;
-    margin-right: 75px;
-}
-
 main {
-    flex: 1;
+    flex: 1; /* S'assure que main prend tout l'espace disponible */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 5vw;
     background-color: #ffffff;
 }
 
 footer {
     background-color: #5A7D9A;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     width: 100%;
     flex-shrink: 0;
+    text-align: center;
+    padding: 10px 0;
 }
 
 footer a {
@@ -67,10 +60,10 @@ footer a:hover, header a:hover {
     background-color: #E0E0E0;
     border-radius: 5px;
     color: #777777;
-    width: 380px;
-    height: 50px;
-    font-size: 20px;
-    margin-bottom: 32px;
+    width: 90%;
+    height: 8vh;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
 }
 
 #sign input::placeholder, #log input::placeholder {
@@ -81,15 +74,50 @@ footer a:hover, header a:hover {
     background-color: #C9C9C9;
     color: #777777;
     border-radius: 10px;
-    width: 176px;
-    height: 50px;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    width: 45%;
+    height: 8vh;
+    font-size: 1.25rem;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
 }
 
 #sign a, #log a {
     text-decoration: none;
     color: #777777;
-    font-size: 14px;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 390px) {
+    .navbar {
+        padding: 4vh 3vw;
+        font-size: 1.5rem;
+    }
+    main {
+        padding: 4vw;
+    }
+    #sign input, #log input {
+        font-size: 1rem;
+    }
+    #sign button, #log button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 390px) {
+    .navbar .links a {
+        font-size: 0.8rem;
+    }
+    .navbar .links button {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .row {
+        flex-direction: column;
+    }
+    .navbar .col-12 {
+        text-align: center;
+        padding: 5px 0;
+    }
 }
