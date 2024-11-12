@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #F7F7F7;
+    background-color: #F7F7F7 !important;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -31,7 +31,7 @@ main {
     align-items: flex-start;
     justify-content: flex-start;
     padding: 0 2vw;
-    background-color: #ffffff;
+    background-color: #F7F7F7 !important;
 }
 
 footer {
@@ -53,7 +53,7 @@ footer a:hover, header a:hover {
     text-decoration: underline;
 }
 
-#sign, #log {
+#sign, #log, #missing-dot {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -87,6 +87,49 @@ footer a:hover, header a:hover {
     color: #777777;
     font-size: 0.875rem;
 }
+
+#missing-button {
+    background-color: #C9C9C9;
+    color: #777777;
+    border-radius: 10px;
+    width: 20%;
+    height: 4vh;
+    font-size: 1.25rem;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+#missing-input {
+    background-color: #E0E0E0;
+    color: #777777;
+    border-radius: 5px;
+    width: 20%;
+    height: 6vh;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+#missing-dot {
+    justify-content: center;
+}
+
+#missing-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7F7F7;
+}
+
+#missing-dot {
+    text-align: center;
+}
+
+#game {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 390px) {
@@ -124,29 +167,3 @@ footer a:hover, header a:hover {
 
 
 /* Keyframes */
-
-.color-change-2x {
-    animation: color-change-2x 60s linear infinite alternate both;
-}
-
-@keyframes color-change-2x {
-    0% {
-      background: #76a4ca;
-    }
-    100% {
-      background: #35495a;
-    }
-  }
-  
-.name-footer {
-    animation: name-footer 2s linear infinite alternate both;
-}
-
-@keyframes name-footer {
-    0% {
-        color: #0000ff;
-    }
-    100% {
-        color: #ff0000;
-    }
-}
