@@ -92,7 +92,7 @@ function ClickHandle() {
     '#E0FFFF', // Cyan clair
     '#F5DEB3', // Blé
     '#FFC0CB', // Rose
-    '#FA8072', // Saumon clair
+    // '#FA8072', // Saumon clair
     '#581845', // Violet sombre
     '#900C3F', // Bordeaux
     '#8B0000', // Rouge foncé
