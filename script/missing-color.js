@@ -40,7 +40,7 @@ function init() {
 
   bounds = canvas.getBoundingClientRect();
 
-  const poppins = new FontFace('Poppins', 'url(fonts/Poppins-SemiBold.ttf)');
+  const poppins = new FontFace('Poppins', 'url(/fonts/Poppins-SemiBold.ttf)');
 
 
   poppins.load().then(function (font) {

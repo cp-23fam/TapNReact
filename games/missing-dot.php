@@ -20,11 +20,9 @@
 
   <main style="background-color: #F7F7F7;" id="missing-center">
     <div id="missing-dot" class="text-center">
-      <canvas style="background-color: #F7F7F7; width: 100vw; height: 50vw; display:block;" id="game"></canvas>
-      <div>
-        <input type="text" name="rep" class="border-1 w-25" id="" placeholder="a-h & 1-3" pattern="^[a-h][1-3]$" required>
-        <button id="" class="btn btn-secondary">Confirmer</button>
-      </div>
+      <canvas style="background-color: #F7F7F7; width: 100vw; height: 50vw" id="game" class="game"></canvas><br>
+      <input type="text" name="rep" class="border-1" id="missing-input" placeholder="a-h & 1-3" pattern="^[a-h][1-3]$" required>
+      <button id="missing-button" class="btn btn-secondary">Confirmer</button>
     </div>
 
   </main>

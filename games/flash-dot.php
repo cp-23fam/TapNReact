@@ -10,7 +10,7 @@
 
         <main style="background-color: #F7F7F7;" id="missing-center">
             <div  id="missing-dot" class="text-center">
-                <canvas style="background-color: #F7F7F7; width: 900px; height: 500px;" id="game"></canvas><br>
+                <canvas style="background-color: #F7F7F7; width: 900px; height: 500px;" id="game" class="game"></canvas><br>
                 <!-- <input type="text" name="rep" class="border-1" id="missing-input" placeholder="a-h & 1-3" pattern="^[a-h][1-3]$" required>
                 <button id="missing-button" type="submit" class="btn btn-secondary">Confirmer</button> -->
             </div>
