@@ -13,7 +13,7 @@ function init() {
 
   let interval;
 
-  const poppins = new FontFace('Poppins', 'url(fonts/Poppins-SemiBold.ttf)');
+  const poppins = new FontFace('Poppins', 'url(/fonts/Poppins-SemiBold.ttf)');
 
   poppins.load().then(function (font) {
     document.fonts.add(font)
