@@ -2,6 +2,7 @@ var canvas;
 var c;
 var start;
 var forceWrong = Math.floor(Math.random() * 3) + 2;
+var forceCorrect = Math.floor(Math.random() * 5) + 8;
 var state = false;
 
 function init() {
@@ -31,7 +32,7 @@ function init() {
 
       if (!state) {
         state = !state;
-        Loop(zones);
+        Loop(zones, interval);
         interval = setInterval(function () {
           Loop(zones, interval);
         }, 1000);
@@ -70,10 +71,15 @@ function Loop(zones, interval) {
       do {
         z[2] = colors[Math.floor(Math.random() * colors.length)];
       } while (zones[0][2] == zones[1][2])
+    } else if (forceCorrect == 0) {
+      while (zones[0][2] != zones[1][2]) {
+        z[2] = colors[Math.floor(Math.random() * colors.length)];
+      }
     }
     DrawCircle(c, z[0], z[1], 200, z[2])
   })
   forceWrong--;
+  forceCorrect--;
 
   if (zones[0][2] == zones[1][2]) {
     clearInterval(interval, zones);
@@ -101,5 +107,7 @@ function ClickEndGame(zones) {
     c.fillText(`Perdu`, canvas.width / 2, canvas.height / 2);
     c.font = '30px Poppins';
     c.fillText(`Cliquez pour recommencer`, canvas.width / 2, canvas.height / 2 + 40);
+    forceWrong = Math.floor(Math.random() * 3) + 2;
+    forceCorrect = Math.floor(Math.random() * 6) + 10;
   }
 }

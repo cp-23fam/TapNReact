@@ -83,30 +83,21 @@ function GetTwoExistingColors() {
 function ClickHandle() {
 
   const colors = [
-    '#FFB6C1', // Rose clair
-    '#FFD700', // Doré
-    '#FFDEAD', // Beige
-    '#DAF7A6', // Vert pastel
-    '#B0E0E6', // Bleu poudre
-    '#98FB98', // Vert pâle
-    '#ADFF2F', // Vert jaune
-    '#FFFACD', // Jaune citron clair
-    '#E0FFFF', // Cyan clair
-    '#F5DEB3', // Blé
-    '#FFC0CB', // Rose
-    // '#FA8072', // Saumon clair
-    '#581845', // Violet sombre
-    '#900C3F', // Bordeaux
-    '#8B0000', // Rouge foncé
-    '#2F4F4F', // Gris ardoise foncé
-    '#8A2BE2', // Bleu-violet
-    '#4B0082', // Indigo
-    '#556B2F', // Vert olive foncé
-    '#191970', // Bleu minuit
-    '#6B8E23', // Olive
-    '#8B4513', // Brun
-    '#A52A2A', // Marron
-    '#4682B4', // Bleu acier
+    'violet',
+    'pink',
+    'crimson',
+    'red',
+    'orange',
+    'coral',
+    'orange',
+    'gold',
+    'yellow',
+    'lightgreen',
+    'mediumseagreen',
+    'green',
+    'teal',
+    'royalblue',
+    'lightblue'
   ];
 
 
