@@ -7,7 +7,7 @@ body {
     flex-direction: column;
 }
 
-.navbar {
+.bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,7 +17,7 @@ body {
     box-sizing: border-box;
 }
 
-.navbar {
+.bar {
     font-size: 2rem;
     height: 20vh;
 }
@@ -31,7 +31,7 @@ footer {
     font-weight: 600;
 }
 
-.navbar a, .navbar button, footer a, #sign a, #log a {
+.bar a, .bar button, footer a, #sign a, #log a {
     text-decoration: none;
     color: black;
     font-weight: 500;
