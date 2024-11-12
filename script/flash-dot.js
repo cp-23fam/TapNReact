@@ -20,6 +20,7 @@ function init() {
 
   const poppins = new FontFace('Poppins', 'url(../fonts/Poppins-SemiBold.ttf)');
 
+
   poppins.load().then(function (font) {
     document.fonts.add(font)
 
