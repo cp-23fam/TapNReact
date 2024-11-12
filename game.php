@@ -17,10 +17,11 @@
     crossorigin="anonymous" />
 
   <!-- Custom -->
-  <script src="script/missing-dot.js"></script>
+  <!-- <script src="script/missing-dot.js"></script> -->
   <!-- <script src="script/flash-dot.js"></script> -->
   <!-- <script src="script/reaction.js"></script> -->
   <!-- <script src="script/missing-color.js"></script> -->
+  <script src="script/infinite-number.js"></script>
 </head>
 
 <body onload="init();">
@@ -29,8 +30,6 @@
   </header>
   <main>
     <canvas style="background-color: #E0E0E0; width: 1079px; height: 727px; margin: 10px;" id="game"></canvas>
-    <form action="">
-    </form>
   </main>
   <footer>
     <!-- place footer here -->
