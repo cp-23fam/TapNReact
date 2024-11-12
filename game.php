@@ -30,6 +30,8 @@
   </header>
   <main>
     <canvas style="background-color: #E0E0E0; width: 1079px; height: 727px; margin: 10px;" id="game"></canvas>
+    <input type="number" name="number" id="input">
+    <button type="button" id="button">Confirmer</button>
   </main>
   <footer>
     <!-- place footer here -->
