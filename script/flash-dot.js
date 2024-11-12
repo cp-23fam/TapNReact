@@ -18,7 +18,8 @@ function init() {
     [canvas.width / 4 * 3, canvas.height / 2, '#A3C2D0']
   ];
 
-  const poppins = new FontFace('Poppins', 'url(fonts/Poppins-SemiBold.ttf)');
+  const poppins = new FontFace('Poppins', 'url(../fonts/Poppins-SemiBold.ttf)');
+
 
   poppins.load().then(function (font) {
     document.fonts.add(font)
