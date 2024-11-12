@@ -4,6 +4,8 @@ var c;
 var circles = [];
 var count = 2;
 
+let bounds;
+
 var state = false;
 let missingIndex;
 
@@ -36,7 +38,7 @@ function init() {
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
 
-
+  bounds = canvas.getBoundingClientRect();
 
   const poppins = new FontFace('Poppins', 'url(/fonts/Poppins-SemiBold.ttf)');
 
@@ -147,8 +149,8 @@ function ClickHandle() {
     }, 2000 + count * 100);
   } else {
     for (i = 0; i < 3; i++) {
-      const dx = event.x - canvas.width / 6 * (2 + i);
-      const dy = event.y - canvas.height / 2;
+      const dx = event.clientX - bounds.left - canvas.width / 6 * (2 + i);
+      const dy = event.clientY - bounds.top - canvas.height / 2;
 
       const distance = Math.sqrt(dx * dx + dy * dy);
 
