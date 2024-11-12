@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #F7F7F7;
+    background-color: #F7F7F7 !important;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -11,43 +11,37 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px;
+    padding: 5vh 5vw;
     background-color: #5A7D9A;
-    font-size: 32px;
+    font-size: 2rem;
     width: 100%;
-    height: 165px;
+    height: 20vh;
     box-sizing: border-box;
 }
 
-
-.navbar a {
-    margin-left: 40px;
+.navbar a, .navbar button {
     text-decoration: none;
     color: black;
     font-weight: 500;
 }
 
-.navbar button {
-    color: black;
-    font-size: 32px;
-    margin-right: 75px;
-}
-
 main {
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #ffffff;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 2vw;
+    background-color: #F7F7F7 !important;
 }
 
 footer {
     background-color: #5A7D9A;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     width: 100%;
     flex-shrink: 0;
+    text-align: center;
+    padding: 10px;
 }
 
 footer a {
@@ -59,7 +53,7 @@ footer a:hover, header a:hover {
     text-decoration: underline;
 }
 
-#sign, #log {
+#sign, #log, #missing-dot {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -67,10 +61,10 @@ footer a:hover, header a:hover {
     background-color: #E0E0E0;
     border-radius: 5px;
     color: #777777;
-    width: 380px;
-    height: 50px;
-    font-size: 20px;
-    margin-bottom: 32px;
+    width: 90%;
+    height: 8vh;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
 }
 
 #sign input::placeholder, #log input::placeholder {
@@ -81,15 +75,95 @@ footer a:hover, header a:hover {
     background-color: #C9C9C9;
     color: #777777;
     border-radius: 10px;
-    width: 176px;
-    height: 50px;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    width: 45%;
+    height: 8vh;
+    font-size: 1.25rem;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
 }
 
 #sign a, #log a {
     text-decoration: none;
     color: #777777;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
+
+#missing-button {
+    background-color: #C9C9C9;
+    color: #777777;
+    border-radius: 10px;
+    width: 20%;
+    height: 4vh;
+    font-size: 1.25rem;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+#missing-input {
+    background-color: #E0E0E0;
+    color: #777777;
+    border-radius: 5px;
+    width: 20%;
+    height: 6vh;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+#missing-dot {
+    justify-content: center;
+}
+
+#missing-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7F7F7;
+}
+
+#missing-dot {
+    text-align: center;
+}
+
+#game {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 390px) {
+    .navbar {
+        padding: 4vh 3vw;
+        font-size: 1.5rem;
+    }
+    main {
+        padding: 4vw;
+    }
+    #sign input, #log input {
+        font-size: 1rem;
+    }
+    #sign button, #log button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .row {
+        flex-direction: column;
+    }
+    .navbar .col-12 {
+        text-align: center;
+        padding: 5px 0;
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        padding: 2vw;
+    }
+}
+
+
+
+/* Keyframes */
