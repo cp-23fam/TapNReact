@@ -9,9 +9,9 @@
         <?php require_once('../components/header.php')?>
 
         <main style="background-color: #F7F7F7;">
-                <div class="temp">
+                <div class="w-100">
                     <div class="d-flex flex-column flex-md-row w-100">
-                        <div class="template"></div>
+                        <div class="template w-md-75 w-100"></div>
                         <div style=" padding-top: 1vw" class="ps-3">
                             <div class="scores text-start">
                                 <button class="border-0 w-75 mb-1">Retour à l'accueil</button>
