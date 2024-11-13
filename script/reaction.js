@@ -46,7 +46,7 @@ function init() {
           c.font = '50px Poppins'
           c.textAlign = 'center';
           c.fillText(`${new Date() - time}ms`, canvas.width / 2, canvas.height / 2);
-          document.getElementById('score').innerHTML = 1500 - (new Date() - time);
+          document.getElementById('score').innerHTML = Math.max(1500 - (new Date() - time), 0);
         } else {
           c.clearRect(0, 0, canvas.width, canvas.height);
           c.fillStyle = 'black';

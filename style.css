@@ -53,7 +53,7 @@ main {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 2vw;
+  /* padding: 0 2vw; */
   background-color: #F7F7F7;
 }
 

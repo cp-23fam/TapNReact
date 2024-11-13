@@ -10,11 +10,11 @@
   <?php require_once('components/header.php') ?>
 
   <main>
-    <div class="container-flex">
-      <div class="row row-cols-md-5 row-cols-1">
-        <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="container-fluid px-auto">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
+        <div class="mb-4">
           <a href="./games/missing-dot.php" style="text-decoration: none; color: #333333;">
-            <div class="card mx-auto" style="width: 18rem; background-color: #E0E0E0 ; margin: 2vh;">
+            <div class="card mx-auto h-100" style="background-color: #E0E0E0 ; margin: 2vh;">
               <div class="card-body p-0">
                 <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
                 <img class="card-img-top p-3" src="./images/missing-dot.png" alt="Image">
@@ -23,9 +23,9 @@
           </a>
         </div>
       </div>
-      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="mb-4">
         <a href="./games/flash-dot.php" style="font-weight: bold; text-decoration: none; color: #333333;">
-          <div class="card mx-auto" style="width: 18rem; background-color: #E0E0E0 ; margin: 2vh;">
+          <div class="card mx-auto h-100" style="background-color: #E0E0E0 ; margin: 2vh;">
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/flash-dot.png" alt="Image">
@@ -34,9 +34,9 @@
           </div>
         </a>
       </div>
-      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="mb-4">
         <a href="./games/missing-color.php" style="font-weight: bold; text-decoration: none; color: #333333;">
-          <div class="card mx-auto" style="width: 18rem; background-color: #E0E0E0 ; margin: 2vh;">
+          <div class="card mx-auto h-100" style="background-color: #E0E0E0 ; margin: 2vh;">
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/missing-color.png" alt="Image">
@@ -45,9 +45,9 @@
           </div>
         </a>
       </div>
-      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="mb-4">
         <a href="./games/reaction.php" style="font-weight: bold; text-decoration: none; color: #333333;">
-          <div class="card mx-auto" style="width: 18rem; background-color: #E0E0E0 ; margin: 2vh;">
+          <div class="card mx-auto h-100" style="background-color: #E0E0E0 ; margin: 2vh;">
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/reaction.png" alt="Image">
@@ -56,9 +56,9 @@
           </div>
         </a>
       </div>
-      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="mb-4">
         <a href="./games/infinite-number.php" style="font-weight: bold; text-decoration: none; color: #333333;">
-          <div class="card mx-auto" style="width: 18rem; background-color: #E0E0E0 ; margin: 2vh;">
+          <div class="card mx-auto h-100" style="background-color: #E0E0E0 ; margin: 2vh;">
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/infinite-number.png" alt="Image">
@@ -68,9 +68,9 @@
         </a>
       </div>
 
-      <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="mb-4">
         <a href="./games/reaction.php" style="font-weight: bold; text-decoration: none; color: #333333;">
-          <div class="card mx-auto" style="width: 18rem; background-color: #E0E0E0 ; margin: 2vh;">
+          <div class="card mx-auto h-100" style="background-color: #E0E0E0 ; margin: 2vh;">
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/cat.jpeg" alt="Image">
