@@ -5,9 +5,11 @@ var circles = [];
 var rot = Math.floor(Math.random() * 360) + 1;
 
 let bigSize;
-
+let zones;
 
 function init() {
+  circles = [];
+
   canvas = document.getElementById('game');
   c = canvas.getContext('2d');
 
@@ -15,8 +17,7 @@ function init() {
   canvas.height = canvas.clientWidth / 16 * 8 * 2;
   bigSize = canvas.clientWidth / 2 - canvas.clientWidth / 20;
 
-
-  const zones = [
+  let zones = [
     [canvas.width / 4, canvas.height / 2],
     [canvas.width / 4 * 3, canvas.height / 2]
   ];

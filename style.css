@@ -16,7 +16,7 @@ body {
   max-height: 15vh;
   min-height: 10vh;
   box-sizing: border-box;
-  font-size: 2rem;
+  font-size: min(7vw, 2rem);
 }
 
 footer {

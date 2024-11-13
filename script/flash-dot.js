@@ -98,6 +98,8 @@ function ClickEndGame(zones) {
     c.fillText(`${time}ms`, canvas.width / 2, canvas.height / 2);
     c.font = '30px Poppins';
     c.fillText(`Cliquez pour recommencer`, canvas.width / 2, canvas.height / 2 + 40);
+
+    document.getElementById('score').innerHTML = 1500 - time;
   } else {
     c.clearRect(0, 0, canvas.width, canvas.height);
 

@@ -113,7 +113,7 @@ function ClickHandle() {
     circles = [];
     const choices = colors.filter(function (color) { return color != missingColor })
     for (i = 0; i < count * 2; i++) {
-      circles.push(new Circle(RandInt(canvas.width), RandInt(canvas.height), bigSize - count, choices[Math.floor(Math.random() * choices.length)]));
+      circles.push(new Circle(RandInt(canvas.width), RandInt(canvas.height), bigSize - count * 5, choices[Math.floor(Math.random() * choices.length)]));
     }
     // circles.push(new Circle(canvas.width / 2, canvas.height / 2, 10, missingColor))
     count++;
@@ -157,8 +157,10 @@ function ClickHandle() {
           c.font = '50px Poppins'
           c.textAlign = 'center';
           c.fillText('Perdu', canvas.width / 2, canvas.height / 2);
+          document.getElementById('score').innerHTML = 0;
           count = 2;
         } else {
+          document.getElementById('score').innerHTML = (count - 2) * 100
           ClickHandle();
         }
       }

@@ -57,7 +57,9 @@ function HandleSend() {
     DrawText(text, canvas.width / 2, canvas.height / 2, fontSize);
     size++;
 
-    setTimeout(EnterInput, 1500)
+    setTimeout(EnterInput, 2000)
+
+    document.getElementById('score').innerHTML = (size - 2) * 100
   } else {
     c.clearRect(0, 0, canvas.width, canvas.height)
     DrawText('Perdu', canvas.width / 2, canvas.height / 2, 50)
@@ -74,6 +76,7 @@ function EnterInput() {
 }
 
 function CanvasClick() {
+  document.getElementById('score').innerHTML = 0
   c.clearRect(0, 0, canvas.width, canvas.height)
   text = RandomNumbers(size);
   DrawText(text, canvas.width / 2, canvas.height / 2, fontSize);
