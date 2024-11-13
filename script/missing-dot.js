@@ -12,7 +12,7 @@ function init() {
   c = canvas.getContext('2d');
 
   canvas.width = canvas.clientWidth * 2;
-  canvas.height = canvas.clientHeight * 2;
+  canvas.height = canvas.clientWidth / 16 * 8 * 2;
   bigSize = canvas.clientWidth / 2 - canvas.clientWidth / 20;
 
 

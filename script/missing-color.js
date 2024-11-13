@@ -9,6 +9,8 @@ let bounds;
 var state = false;
 let missingIndex;
 
+let bigSize;
+
 class Circle {
   constructor(x, y, rayon, color) {
     this.x = x;
@@ -36,7 +38,8 @@ function init() {
   c = canvas.getContext('2d');
 
   canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+  canvas.height = canvas.clientWidth / 16 * 8;
+  bigSize = canvas.width / 15;
 
   bounds = canvas.getBoundingClientRect();
 
@@ -110,7 +113,7 @@ function ClickHandle() {
     circles = [];
     const choices = colors.filter(function (color) { return color != missingColor })
     for (i = 0; i < count * 2; i++) {
-      circles.push(new Circle(RandInt(canvas.width), RandInt(canvas.height), 100 - count, choices[Math.floor(Math.random() * choices.length)]));
+      circles.push(new Circle(RandInt(canvas.width), RandInt(canvas.height), bigSize - count, choices[Math.floor(Math.random() * choices.length)]));
     }
     // circles.push(new Circle(canvas.width / 2, canvas.height / 2, 10, missingColor))
     count++;
@@ -134,7 +137,7 @@ function ClickHandle() {
         if (choice == missingColor) {
           missingIndex = i;
         }
-        DrawCircle(canvas.width / 6 * (2 + i), canvas.height / 2, 60, choice);
+        DrawCircle(canvas.width / 6 * (2 + i), canvas.height / 2, bigSize, choice);
         choices.splice(choices.indexOf(choice), 1);
       }
     }, 2000 + count * 100);
@@ -145,7 +148,7 @@ function ClickHandle() {
 
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < 60) {
+      if (distance < bigSize) {
         state = !state
         if (missingIndex != i) {
           c.clearRect(0, 0, canvas.width, canvas.height);

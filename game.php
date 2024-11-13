@@ -18,7 +18,7 @@
 
   <!-- Custom -->
   <!-- <script src="script/missing-dot.js"></script> -->
-  <script src="script/flash-dot.js"></script>
+  <!-- <script src="script/flash-dot.js"></script> -->
   <!-- <script src="script/reaction.js"></script> -->
   <!-- <script src="script/missing-color.js"></script> -->
   <!-- <script src="script/infinite-number.js"></script> -->

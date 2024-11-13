@@ -14,7 +14,7 @@ function init() {
   button = document.getElementById('button');
 
   canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+  canvas.height = canvas.clientWidth / 16 * 8;
 
   const poppins = new FontFace('Poppins', 'url(/fonts/Poppins-SemiBold.ttf)');
 

@@ -10,7 +10,7 @@ function init() {
   c = canvas.getContext('2d');
 
   canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+  canvas.height = canvas.clientWidth / 16 * 8;
 
   let interval;
 
