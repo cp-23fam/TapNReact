@@ -10,28 +10,61 @@ class Database
     $this->db = new PDO('mysql:host=localhost;dbname=tib', $user, $pwd);
   }
 
-  function CreateUser(string $username, string $password, string $birth, int $idPoints)
+  function CreateUser(string $username, string $password, string $birth)
   {
-    $stmt = $this->db->prepare("INSERT INTO `portes-ouvertes`.`user` (`username`, `password`, `date_naissance`, `Points_idPoints`) VALUES (:username, :pass, :birth, :pts)");
+    $stmt = $this->db->prepare("INSERT INTO `portes-ouvertes`.`user` (`username`, `password`, `date_naissance`) VALUES (:username, :pass, :birth)");
     $stmt->bindParam(':username', $username, PDO::PARAM_STR);
     $stmt->bindParam(':pass', $password, PDO::PARAM_STR);
     $stmt->bindParam(':birth', $birth, PDO::PARAM_STR);
-    $stmt->bindParam(':pts', $idPoints, PDO::PARAM_INT);
 
     $stmt->execute();
   }
 
-  function CreatePoints() {
-    $this->db->query("INSERT INTO `portes-ouvertes`.`points` (`missing_dot`) VALUES ('');");
-    return $this->db->query("SELECT `idPoints` FROM `portes-ouvertes`.`points` ORDER BY `idPoints` DESC LIMIT 1;")->fetch()['idPoints'];
+  function GetUserID(string $username)
+  {
+    $stmt = $this->db->prepare("SELECT `idUser` FROM `portes-ouvertes`.`user` WHERE `username` = :username");
+    $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+    $stmt->execute();
+
+    $result = $stmt->fetch();
+    if ($result != false) {
+      return $result['idUser'];
+    }
   }
 
-  function Login(string $username, string $password) {
+  function CreatePoints(int $idUser)
+  {
+    $this->db->query("INSERT INTO `portes-ouvertes`.`points` (`user_idUser`) VALUES ($idUser);");
+  }
+
+  function Login(string $username, string $password)
+  {
     $stmt = $this->db->prepare("SELECT `password` FROM `portes-ouvertes`.`user` WHERE `username` = :user");
     $stmt->bindParam(':user', $username, PDO::PARAM_STR);
     $stmt->execute();
 
     $dbpwd = $stmt->fetch()['password'];
     return $dbpwd == $password;
+  }
+
+  function ReturnUserPoints(int $idUser)
+  {
+    $request = $this->db->query("SELECT `missing_dot`, `same_color`, `endless_number`, `wanted`, `pattern`, `reaction`, `missing_color` FROM `portes-ouvertes`.`points` WHERE `user_idUser` = $idUser");
+    return $request->fetch();
+  }
+
+  function SetUserPoints(int $idUser, int $game, int $points)
+  {
+    $gameName = "";
+
+    switch ($game) {
+      case 2:
+        $gameName = "same_color";
+        break;
+    }
+
+    $stmt = $this->db->prepare("UPDATE `portes-ouvertes`.`points` SET `$gameName` = :points WHERE `user_idUser` = :user");
+    $stmt->bindParam(':user', $idUser, PDO::PARAM_INT);
+    $stmt->bindParam(':points', $points, PDO::PARAM_INT);
   }
 }

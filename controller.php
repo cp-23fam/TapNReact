@@ -13,9 +13,11 @@ class Controller {
   }
 
   function CreateUser(string $username, string $password, string $birth) {
-    $id = $this->db->CreatePoints();
     $hash = hash('sha256', $password);
-    $this->db->CreateUser($username, $hash, $birth, $id);
+    $this->db->CreateUser($username, $hash, $birth);
+    $id = $this->db->GetUserID($username);
+
+    $this->db->CreatePoints($id);
   }
 
   function CanLogin(string $username, string $password) {
@@ -23,5 +25,15 @@ class Controller {
     return $this->db->Login($username, $hash);
   }
 
+  function HandlePoints($user, $game, $points) {
+    $dbPoints = $this->db->ReturnUserPoints($user);
 
+    if ($dbPoints[$game] < $points) {
+      
+    }
+  }
+
+  function UserID($username) {
+    return $this->db->GetUserID($username);
+  }
 }

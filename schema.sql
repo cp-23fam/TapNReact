@@ -12,50 +12,49 @@ DROP SCHEMA IF EXISTS `portes-ouvertes` ;
 -- -----------------------------------------------------
 -- Schema portes-ouvertes
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `portes-ouvertes` DEFAULT CHARACTER SET utf8 ;
--- -----------------------------------------------------
--- Schema portes-ouvertes
--- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `portes-ouvertes` DEFAULT CHARACTER SET utf8mb3 ;
 USE `portes-ouvertes` ;
 
 -- -----------------------------------------------------
--- Table `portes-ouvertes`.`Points`
+-- Table `portes-ouvertes`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `portes-ouvertes`.`Points` ;
+DROP TABLE IF EXISTS `portes-ouvertes`.`user` ;
 
-CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`Points` (
-  `idPoints` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `missing_dot` MEDIUMINT UNSIGNED NULL DEFAULT 0,
-  `same_color` MEDIUMINT UNSIGNED NULL DEFAULT 0,
-  `endless_number` MEDIUMINT UNSIGNED NULL DEFAULT 0,
-  `wanted` MEDIUMINT UNSIGNED NULL DEFAULT 0,
-  `pattern` MEDIUMINT UNSIGNED NULL DEFAULT 0,
-  `reaction` MEDIUMINT UNSIGNED NULL DEFAULT 0,
-  `missing_color` MEDIUMINT UNSIGNED NULL DEFAULT 0,
-  PRIMARY KEY (`idPoints`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `portes-ouvertes`.`User`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `portes-ouvertes`.`User` ;
-
-CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`User` (
+CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`user` (
   `idUser` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `date_naissance` DATE NOT NULL,
   `password` VARCHAR(64) NOT NULL,
-  `Points_idPoints` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`idUser`),
-  INDEX `fk_User_Points_idx` (`Points_idPoints` ASC) VISIBLE,
-  INDEX `User_unique` (`username` ASC, `date_naissance` ASC) VISIBLE,
-  CONSTRAINT `fk_User_Points`
-    FOREIGN KEY (`Points_idPoints`)
-    REFERENCES `portes-ouvertes`.`Points` (`idPoints`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
+  UNIQUE `User_unique` (`username` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `portes-ouvertes`.`points`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `portes-ouvertes`.`points` ;
+
+CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`points` (
+  `idPoints` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_idUser` INT UNSIGNED NOT NULL,
+  `missing_dot` MEDIUMINT UNSIGNED NULL DEFAULT '0',
+  `same_color` MEDIUMINT UNSIGNED NULL DEFAULT '0',
+  `endless_number` MEDIUMINT UNSIGNED NULL DEFAULT '0',
+  `wanted` MEDIUMINT UNSIGNED NULL DEFAULT '0',
+  `pattern` MEDIUMINT UNSIGNED NULL DEFAULT '0',
+  `reaction` MEDIUMINT UNSIGNED NULL DEFAULT '0',
+  `missing_color` MEDIUMINT UNSIGNED NULL DEFAULT '0',
+  PRIMARY KEY (`idPoints`),
+  INDEX `fk_points_user_idx` (`user_idUser` ASC) VISIBLE,
+  CONSTRAINT `fk_points_user`
+    FOREIGN KEY (`user_idUser`)
+    REFERENCES `portes-ouvertes`.`user` (`idUser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

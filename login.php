@@ -1,3 +1,17 @@
+<?php
+require_once('controller.php');
+$c = new Controller();
+
+if (isset($_POST['login'])) {
+  if ($c->CanLogin($_POST['username'], $_POST['password'])) {
+    setcookie("ID", $c->UserID($_POST['username']), 3600 * 5, "/");
+    header('Location: index.php');
+    exit();
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,19 +19,6 @@
   <?php require_once('components/head.php') ?>
   <title>Login</title>
 </head>
-
-<?php
-require_once('controller.php');
-$c = new Controller();
-
-if (isset($_POST['login'])) {
-  if ($c->CanLogin($_POST['username'], $_POST['password'])) {
-    header('Location: index.php');
-    exit();
-  }
-}
-
-?>
 
 <body>
   <?php require_once('components/header.php') ?>
