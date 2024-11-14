@@ -4,7 +4,7 @@ $c = new Controller();
 
 if (isset($_POST['login'])) {
   if ($c->CanLogin($_POST['username'], $_POST['password'])) {
-    setcookie("ID", $c->UserID($_POST['username']), 3600 * 5, "/");
+    setcookie("ID", $c->UserID($_POST['username']), time() + 3600 * 5, "/");
     header('Location: index.php');
     exit();
   }

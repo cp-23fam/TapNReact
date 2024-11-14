@@ -28,12 +28,16 @@ class Controller {
   function HandlePoints($user, $game, $points) {
     $dbPoints = $this->db->ReturnUserPoints($user);
 
-    if ($dbPoints[$game] < $points) {
-      
+    if ($dbPoints[$game] < intval($points)) {
+      $this->db->SetUserPoints($user, $game, $points);
     }
   }
 
   function UserID($username) {
     return $this->db->GetUserID($username);
+  }
+
+  function GetHighScore($id, $game) {
+    return $this->db->GetHighScore(intval($id), $game);
   }
 }

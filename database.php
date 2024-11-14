@@ -53,18 +53,41 @@ class Database
     return $request->fetch();
   }
 
-  function SetUserPoints(int $idUser, int $game, int $points)
+  function GetGameName($gameID)
   {
-    $gameName = "";
-
-    switch ($game) {
+    switch ($gameID) {
       case 2:
         $gameName = "same_color";
         break;
     }
 
+    return $gameName;
+  }
+
+  function SetUserPoints(int $idUser, int $game, int $points)
+  {
+    $gameName = $this->GetGameName($game);
+
     $stmt = $this->db->prepare("UPDATE `portes-ouvertes`.`points` SET `$gameName` = :points WHERE `user_idUser` = :user");
     $stmt->bindParam(':user', $idUser, PDO::PARAM_INT);
     $stmt->bindParam(':points', $points, PDO::PARAM_INT);
+
+    $stmt->execute();
+  }
+
+  function GetHighScore($idUser, $game)
+  {
+    $gameName = $this->GetGameName($game);
+    $stmt = $this->db->prepare("SELECT `$gameName` FROM `portes-ouvertes`.`points` WHERE `user_idUser` = :id");
+    $stmt->bindParam(':id', $idUser, PDO::PARAM_INT);
+
+    $stmt->execute();
+    $result = $stmt->fetch();
+
+    if ($result != false) {
+      return $result[$gameName];
+    } else {
+      return 0;
+    }
   }
 }

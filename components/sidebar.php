@@ -1,3 +1,8 @@
+<?php
+require_once('../controller.php');
+$c = new Controller();
+?>
+
 <div class="col-lg-2 col-12 d-flex flex-column">
   <div class="d-flex mb-1 flex-row flex-lg-column mt-2 mt-lg-0">
     <div class="scores text-start mb-1 px-1">
@@ -17,6 +22,6 @@
     <h3>Meilleur score :</h3>
   </div>
   <div class="scores text-start">
-    <h4>0</h4>
+    <h4><?= $c->GetHighScore($_COOKIE['ID'], 2)?></h4>
   </div>
 </div>
