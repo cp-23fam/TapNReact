@@ -16,7 +16,7 @@ body {
   max-height: 15vh;
   min-height: 10vh;
   box-sizing: border-box;
-  font-size: min(7vw, 2rem);
+  font-size: min(7vw, 2.5rem);
 }
 
 footer {
@@ -30,7 +30,6 @@ footer {
 }
 
 .bar a,
-.bar button,
 footer a,
 #sign a,
 #log a {
@@ -64,16 +63,38 @@ main {
   font-family: 'Poppins', sans-serif;
 }
 
-#sign input,
-#log input,
-#missing-input {
+form > input {
   background-color: #E0E0E0;
+  color: #333333;
   border-radius: 5px;
-  color: #777777;
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  width: 90%;
-  height: 8vh;
+  padding: 5px;
+}
+
+button[type="button"],
+button[type="submit"] {
+  background-color: #E0E0E0;
+  color: #333333;
+  border-radius: 5px;
+  border: none;
+}
+
+h2.option {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+
+input[type="date"]:disabled {
+  color:#777777;
+}
+
+form > a {
+  text-decoration: none;
+  color: #333333;
+}
+
+form > a:hover {
+  text-decoration: underline;
 }
 
 #sign input::placeholder,

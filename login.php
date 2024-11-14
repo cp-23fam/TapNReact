@@ -24,30 +24,14 @@ if (isset($_POST['login'])) {
   <?php require_once('components/header.php') ?>
 
   <main>
-    <form action="" method="post">
-      <div class="container">
-        <div class="row">
-          <div class="col text-center" id="log">
-            <input class="border-0 text-center" type="text" name="username" placeholder="Nom d'utilisateur">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col text-center" id="log">
-            <input class="border-0 text-center" type="password" name="password" placeholder="Mot de passe">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col text-center" id="log">
-            <button type="submit" class="border-0 text-center" name="login">Confirmer</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col text-center" id="log">
-            <a class="border-0 text-center" href="sign.php">Créer un compte ?</a>
-          </div>
-        </div>
-      </div>
-    </form>
+    <div class="container-fluid my-auto">
+      <form action="" method="post" class="d-flex flex-column mx-auto col col-sm-10 col-md-8 col-lg-6 col-xl-4 align-items-center">
+        <input class="border-0 text-center w-75 p-3 h-100 mb-3" type="text" name="username" placeholder="Nom d'utilisateur" required maxlength="45">
+        <input class="border-0 text-center w-75 p-3 h-100 mb-5" type="password" name="password" placeholder="Mot de passe" required minlength="5" maxlength="50">
+        <button type="submit" class="border-0 text-center w-50 p-2 mb-1" name="login">Confirmer</button>
+        <a href="sign.php">Pas de compte ?</a>
+      </form>
+    </div>
   </main>
 
 

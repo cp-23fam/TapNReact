@@ -109,6 +109,8 @@ function ClickEndGame(zones) {
       body: form
     })
     document.getElementById('score').innerHTML = score;
+    if (document.getElementById('highscore').innerHTML < score)
+      document.getElementById('highscore').innerHTML = score;
   } else {
     c.clearRect(0, 0, canvas.width, canvas.height);
 

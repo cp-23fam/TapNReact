@@ -29,6 +29,8 @@ class Database
     $result = $stmt->fetch();
     if ($result != false) {
       return $result['idUser'];
+    } else {
+      return 0;
     }
   }
 

@@ -9,9 +9,7 @@
         <a href="/profil.php" class="nav-item px-0 px-md-2 me-0 me-sm-1">Profil</a>
 
         <div class="text-end ms-auto me-2">
-          <button onclick="window.location.href='login.php'" type="button" class="border-0 bg-transparent">
-            <i class="fa-solid fa-right-to-bracket"></i>
-          </button>
+            <a href="/login.php"><i class="fa-solid fa-right-to-bracket"></i></a>
         </div>
       </div>
     </div>
