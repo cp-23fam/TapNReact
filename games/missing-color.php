@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-$game = 5;
+$game = 7;
 ?>
 
 <head>
