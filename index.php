@@ -6,6 +6,14 @@
   <title>Main</title>
 </head>
 
+<?php
+if (!isset($_COOKIE['ID'])) {
+  header('Location: login.php');
+  exit();
+}
+
+?>
+
 <body>
   <?php require_once('components/header.php') ?>
 

@@ -29,7 +29,7 @@
         <button type="button" class="p-2 mt-4">Appliquer les changements</button>
       </div>
 
-    </div>
+    </div>  
 
     <div class="d-flex flex-column mt-4">
       <h1 class="text-danger">Zone de danger</h1>

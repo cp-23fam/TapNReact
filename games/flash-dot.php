@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+$game = 2;
+?>
+
 <head>
   <?php require_once('../components/head.php') ?>
   <title>Missing Dot</title>

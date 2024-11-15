@@ -7,7 +7,7 @@ class Database
 
   function __construct($user, $pwd)
   {
-    $this->db = new PDO('mysql:host=localhost;dbname=tib', $user, $pwd);
+    $this->db = new PDO('mysql:host=localhost;dbname=portes-ouvertes', $user, $pwd);
   }
 
   function CreateUser(string $username, string $password, string $birth)
@@ -58,11 +58,20 @@ class Database
   function GetGameName($gameID)
   {
     switch ($gameID) {
+      case 1:
+        $gameName = "missing_dot";
+        break;
       case 2:
         $gameName = "same_color";
         break;
       case 3:
         $gameName = "endless_number";
+        break;
+      case 4:
+        $gameName = "wanted";
+        break;
+      case 5:
+        $gameName = "pattern";
         break;
       case 6:
         $gameName = "reaction";
