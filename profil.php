@@ -29,7 +29,7 @@
         <button type="button" class="p-2 mt-4">Appliquer les changements</button>
       </div>
 
-    </div>  
+    </div>
 
     <div class="d-flex flex-column mt-4">
       <h1 class="text-danger">Zone de danger</h1>
@@ -58,6 +58,7 @@
       <div class="container">
         <button type="button" class="btn mt-2 p-2" onclick="openPopup('popup-account')">Supprimer le compte</button>
         <div class="popup" id="popup-account">
+          <a onclick="closePopup('popup-account')" style="color: #dc3545; justify-content: end;"><i class="fa-solid fa-xmark"></i></a>
           <h2>Êtes-vous sûr ?</h2>
           <p>Votre compte sera supprimé si vous décidez de continuer</p>
           <button type="button" onclick="closePopup('popup-account')">SUPPRIMER</button>
