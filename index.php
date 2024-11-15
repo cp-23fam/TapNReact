@@ -75,22 +75,7 @@ if (!isset($_COOKIE['ID'])) {
           </div>
         </a>
       </div>
-
-      <div class="mb-4">
-        <a href="./games/reaction.php" style="font-weight: bold; text-decoration: none; color: #333333;">
-          <div class="card mx-auto h-100" style="background-color: #E0E0E0 ; margin: 2vh;">
-            <div class="card-body p-0">
-              <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
-              <img class="card-img-top p-3" src="./images/cat.jpeg" alt="Image">
-              <p class="card-text p-3" style="color: #777777; font-weight: bold;">---</p>
-            </div>
-          </div>
-        </a>
-      </div>
-
     </div>
-    </div>
-
   </main>
 
   <?php require_once('components/footer.php') ?>

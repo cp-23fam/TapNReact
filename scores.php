@@ -28,7 +28,10 @@ $players = $c->GetTopsPlayers();
           <option value="game1">Missing dot</option>
           <option value="game2">Same color</option>
           <option value="game3">Missing color</option>
+          <option value="game4">Reaction</option>
+          <option value="game5">Infinity Number</option>
         </select>
+        <button class="border-0 me-sm-5 me-0 text-start p-2 ms-3">Confirmer</button>
       </div>
       <div>
         <h2 class="mt-4 mt-sm-5 mb-3">Général</h2>
@@ -43,7 +46,7 @@ $players = $c->GetTopsPlayers();
           $color = "#D98857";
       ?>
         <div class="player mb-2">
-          <h3 class="fw-semibold"><?php echo $color != 'none' ? '<span style="color: '.$color.';">🜲</span>' : "" ?> <?= $players[$i]['username'] ?></h3>
+          <h3 class="fw-semibold"><?php echo $color != 'none' ? '<span style="color: ' . $color . ';">🜲</span>' : "" ?> <?= $players[$i]['username'] ?></h3>
           <h3 class="fw-semibold"><?= $players[$i]['total'] ?> p<b class="fw-semibold d-none d-sm-inline">oints</b></h3>
         </div>
       <?php endfor; ?>
