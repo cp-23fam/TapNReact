@@ -6,6 +6,9 @@ var rot = Math.floor(Math.random() * 360) + 1;
 
 let bigSize;
 let zones;
+let button;
+
+let number = 40;
 
 function init() {
   circles = [];
@@ -13,21 +16,27 @@ function init() {
   canvas = document.getElementById('game');
   c = canvas.getContext('2d');
 
+  button = document.getElementById('button');
+
   canvas.width = canvas.clientWidth * 2;
   canvas.height = canvas.clientWidth / 16 * 8 * 2;
   bigSize = canvas.clientWidth / 2 - canvas.clientWidth / 20;
 
-  let zones = [
+  zones = [
     [canvas.width / 4, canvas.height / 2],
     [canvas.width / 4 * 3, canvas.height / 2]
   ];
 
-  RandomCircles();
+  const poppins = new FontFace('Poppins', 'url(../fonts/Poppins-SemiBold.ttf)');
 
-  setInterval(() => {
-    Loop(zones, rot)
-  }, 40);
+  poppins.load().then(function (font) {
+    document.fonts.add(font);
 
+    c.font = '100px Poppins'
+    c.textAlign = 'center';
+    c.fillText('Cliquez pour commencer', canvas.width / 2, canvas.height / 2);
+    canvas.addEventListener('click', CanvasClick)
+  })
 }
 
 function RandInt(max) {
@@ -110,7 +119,7 @@ function RandomCircles() {
     }
   }
 
-  for (i = 0; i < 60; i++) {
+  for (i = 0; i < number; i++) {
     circles.push(new Circle(-bigSize + RandInt(bigSize * 2), -bigSize + RandInt(bigSize * 2), Colors[RandInt(4) - 1]));
   }
 
@@ -141,5 +150,76 @@ function Loop(zones, rotation) {
     DrawRandomSmallCircles(zones[i][0], zones[i][1], i != 1);
     TopCircles(zones[i][0], zones[i][1], 2 * Math.PI / 360 * rotation);
     Areas(zones[i][0], zones[i][1], 2 * Math.PI / 360 * rotation);
+  }
+}
+
+function CanvasClick() {
+  c.clearRect(0, 0, canvas.width, canvas.height)
+
+  RandomCircles();
+
+  setInterval(() => {
+    Loop(zones, rot)
+  }, 40);
+
+  canvas.removeEventListener('click', CanvasClick);
+  button.addEventListener('click', HandleSend);
+}
+
+function GetMissingZone() {
+  c.reset();
+
+  let zone;
+  let angle;
+  let distance;
+  circles.forEach((c) => {
+    if (c.missing) {
+
+      rad = Math.atan2(c.x, c.y)
+      angle = (rad / Math.PI * 180) + (rad > 0 ? 0 : 360);
+
+      distance = Math.sqrt(c.x * c.x + c.y * c.y);
+    }
+  })
+
+  if (angle > 0 && angle <= 45)
+    zone = "d";
+  else if (angle > 45 && angle <= 90)
+    zone = "c";
+  else if (angle > 90 && angle <= 135)
+    zone = "b";
+  else if (angle > 135 && angle <= 180)
+    zone = "a";
+  else if (angle > 180 && angle <= 225)
+    zone = "h";
+  else if (angle > 225 && angle <= 270)
+    zone = "g";
+  else if (angle > 270 && angle <= 315)
+    zone = "f";
+  else if (angle > 315 && angle <= 360)
+    zone = "e";
+
+  if (distance < bigSize / 3)
+    zone += "1";
+  else if (distance < bigSize / 4 * 3)
+    zone += "2";
+  else
+    zone += "3";
+
+  return zone;
+}
+
+function HandleSend() {
+  const input = document.getElementById('input');
+
+  if (input.value == GetMissingZone()) {
+    document.getElementById('score').innerHTML = (number / 10 - 3) * 100;
+    number += 10;
+
+    c.clearRect(0, 0, canvas.width, canvas.height)
+    circles = [];
+    RandomCircles();
+
+    input.value = "";
   }
 }

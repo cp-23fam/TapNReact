@@ -61,6 +61,15 @@ class Database
       case 2:
         $gameName = "same_color";
         break;
+      case 3:
+        $gameName = "endless_number";
+        break;
+      case 6:
+        $gameName = "reaction";
+        break;
+      case 7:
+        $gameName = "missing_color";
+        break;
     }
 
     return $gameName;
@@ -91,5 +100,10 @@ class Database
     } else {
       return 0;
     }
+  }
+
+  function ReturnTopPlayers()
+  {
+    return $this->db->query("SELECT `username`, `date_naissance`, (`missing_dot` + `same_color` + `endless_number` + `wanted` + `pattern` + `reaction` + `missing_color`) AS `total`, `missing_dot`, `same_color`, `endless_number`, `wanted`, `pattern`, `reaction`, `missing_color` FROM `portes-ouvertes`.`user` INNER JOIN `portes-ouvertes`.`points` ON `user`.`idUser` = `points`.`user_idUser` ORDER BY `total` DESC LIMIT 5;")->fetchAll();
   }
 }

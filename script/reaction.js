@@ -46,7 +46,20 @@ function init() {
           c.font = '50px Poppins'
           c.textAlign = 'center';
           c.fillText(`${new Date() - time}ms`, canvas.width / 2, canvas.height / 2);
-          document.getElementById('score').innerHTML = Math.max(1500 - (new Date() - time), 0);
+
+          const score = Math.max(1500 - (new Date() - time), 0);
+          const form = new FormData();
+          form.append("game", 6)
+          form.append("score", score)
+
+          fetch("/script/update-score.php", {
+            method: "POST",
+            body: form
+          })
+          document.getElementById('score').innerHTML = score;
+          if (document.getElementById('highscore').innerHTML < score)
+            document.getElementById('highscore').innerHTML = score;
+
         } else {
           c.clearRect(0, 0, canvas.width, canvas.height);
           c.fillStyle = 'black';

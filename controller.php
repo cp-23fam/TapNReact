@@ -40,4 +40,12 @@ class Controller {
   function GetHighScore($id, $game) {
     return $this->db->GetHighScore(intval($id), $game);
   }
+
+  function GetTopsPlayers() {
+    return $this->db->ReturnTopPlayers();
+  }
+
+  function Logout() {
+    
+  }
 }

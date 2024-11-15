@@ -59,7 +59,20 @@ function HandleSend() {
 
     setTimeout(EnterInput, 2000)
 
-    document.getElementById('score').innerHTML = (size - 2) * 100
+    const score = (size - 2) * 100;
+    const form = new FormData();
+
+    document.getElementById('score').innerHTML = score;
+    if (document.getElementById('highscore').innerHTML < score)
+      document.getElementById('highscore').innerHTML = score;
+
+    form.append("game", 3)
+    form.append("score", score)
+
+    fetch("/script/update-score.php", {
+      method: "POST",
+      body: form
+    })
   } else {
     c.clearRect(0, 0, canvas.width, canvas.height)
     DrawText('Perdu', canvas.width / 2, canvas.height / 2, 50)

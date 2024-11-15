@@ -160,8 +160,22 @@ function ClickHandle() {
           document.getElementById('score').innerHTML = 0;
           count = 2;
         } else {
-          document.getElementById('score').innerHTML = (count - 2) * 100
           ClickHandle();
+          const score = (count - 3) * 100;
+          const form = new FormData();
+
+          document.getElementById('score').innerHTML = score;
+          if (document.getElementById('highscore').innerHTML < score)
+            document.getElementById('highscore').innerHTML = score;
+
+          form.append("game", 7)
+          form.append("score", score)
+
+          fetch("/script/update-score.php", {
+            method: "POST",
+            body: form
+          })
+
         }
       }
     }

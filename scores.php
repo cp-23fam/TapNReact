@@ -7,6 +7,13 @@
 
 </head>
 
+<?php
+require_once('controller.php');
+$c = new Controller();
+
+$players = $c->GetTopsPlayers();
+?>
+
 <body>
   <?php require_once('components/header.php') ?>
 
@@ -26,26 +33,20 @@
       <div>
         <h2 class="mt-4 mt-sm-5 mb-3">Général</h2>
       </div>
-      <div class="player mb-2">
-        <h3 class="fw-semibold"><span style="color: #D9A74E;">🜲</span> Gertrude</h3>
-        <h3 class="fw-semibold">1246 p<b class="fw-semibold d-none d-sm-inline">oints</b></h3>
-      </div>
-      <div class="player mb-2">
-        <h3 class="fw-semibold"><span style="color: #5A7D9A;">🜲</span> Gertrude</h3>
-        <h3 class="fw-semibold">1246 p<b class="fw-semibold d-none d-sm-inline">oints</b></h3>
-      </div>
-      <div class="player mb-2">
-        <h3 class="fw-semibold"><span style="color: #D98857;">🜲</span> Gertrude</h3>
-        <h3 class="fw-semibold">1246 p<b class="fw-semibold d-none d-sm-inline">oints</b></h3>
-      </div>
-      <div class="player mb-2">
-        <h3 class="fw-semibold">Gertrude</h3>
-        <h3 class="fw-semibold">1246 p<b class="fw-semibold d-none d-sm-inline">oints</b></h3>
-      </div>
-      <div class="player mb-2">
-        <h3 class="fw-semibold">Gertrude</h3>
-        <h3 class="fw-semibold">1246 p<b class="fw-semibold d-none d-sm-inline">oints</b></h3>
-      </div>
+      <?php for ($i = 0; $i < count($players); $i++):
+        $color = 'none';
+        if ($i == 0)
+          $color = "#D9A74E";
+        else if ($i == 1)
+          $color = "#5A7D9A";
+        else if ($i == 2)
+          $color = "#D98857";
+      ?>
+        <div class="player mb-2">
+          <h3 class="fw-semibold"><?php echo $color != 'none' ? '<span style="color: '.$color.';">🜲</span>' : "" ?> <?= $players[$i]['username'] ?></h3>
+          <h3 class="fw-semibold"><?= $players[$i]['total'] ?> p<b class="fw-semibold d-none d-sm-inline">oints</b></h3>
+        </div>
+      <?php endfor; ?>
     </div>
 
   </main>

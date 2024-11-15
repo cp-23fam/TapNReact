@@ -22,6 +22,6 @@ $c = new Controller();
     <h3>Meilleur score :</h3>
   </div>
   <div class="scores text-start">
-    <h4 id="highscore"><?= $c->GetHighScore($_COOKIE['ID'], 2)?></h4>
+    <h4 id="highscore"><?= $c->GetHighScore($_COOKIE['ID'], 3) ?></h4>
   </div>
 </div>

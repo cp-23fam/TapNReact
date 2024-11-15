@@ -1,3 +1,11 @@
+<?php
+if (isset($_POST['logout'])) {
+  setcookie('ID', '', -1);
+  header('Location: /login.php');
+  exit();
+}
+?>
+
 <header class="bar">
   <div class="container-fluid">
     <div>
@@ -8,9 +16,13 @@
         |
         <a href="/profil.php" class="nav-item px-0 px-md-2 me-0 me-sm-1">Profil</a>
 
-        <div class="text-end ms-auto me-2">
-            <a href="/login.php"><i class="fa-solid fa-right-to-bracket"></i></a>
-        </div>
+        <?php if (isset($_COOKIE['ID'])): ?>
+          <div class="text-end ms-auto me-2">
+            <form action="" method="post">
+              <button type="submit" class="btn btn-link fs-1" name="logout"><i class="fa-solid fa-right-to-bracket"></i></button>
+            </form>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>

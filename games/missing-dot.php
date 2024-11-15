@@ -15,8 +15,8 @@
       <div class="col-lg-10 col-12">
         <canvas class="template ratio ratio-lg-4x3 ratio-16x9" id="game"></canvas>
         <div class="d-flex">
-          <input type="number" name="number" id="input">
-          <button type="button" id="button">Confirmer</button>
+          <input type="text" name="text" id="input" pattern="^[a-h][1-3]$">
+          <button type="button" id="button" class="ms-2">Confirmer</button>
         </div>
       </div>
       <?php require_once('../components/sidebar.php') ?>

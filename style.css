@@ -70,12 +70,21 @@ form > input {
   padding: 5px;
 }
 
-button[type="button"],
-button[type="submit"] {
+button[type="button"] {
   background-color: #E0E0E0;
   color: #333333;
   border-radius: 5px;
   border: none;
+}
+
+button.btn-link {
+  background-color: none;
+  color: #333333;
+}
+
+button.btn-link:hover {
+  background-color: none;
+  color: #333;
 }
 
 h2.option {
