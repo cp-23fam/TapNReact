@@ -20,7 +20,7 @@ $game = 3;
         <canvas class="template ratio ratio-lg-4x3 ratio-16x9" id="game"></canvas>
         <div class="d-flex">
           <input type="number" name="number" id="input">
-          <button type="button" id="button" class="ms-2">Confirmer</button>
+          <button type="button" id="button" class="ms-2 p-2">Confirmer</button>
         </div>
       </div>
       <?php require_once('../components/sidebar.php') ?>
