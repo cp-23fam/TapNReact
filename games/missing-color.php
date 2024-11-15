@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+$game = 5;
+?>
+
 <head>
   <?php require_once('../components/head.php') ?>
   <title>Missing Color</title>

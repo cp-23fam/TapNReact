@@ -26,6 +26,7 @@
 
     .popup {
         width: 400px;
+        background-color: #fff;
         -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
         border-radius: 6px;
