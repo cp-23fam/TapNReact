@@ -153,6 +153,7 @@ function Loop(zones, rotation) {
     TopCircles(zones[i][0], zones[i][1], 2 * Math.PI / 360 * rotation);
     Areas(zones[i][0], zones[i][1], 2 * Math.PI / 360 * rotation);
   }
+  DrawLetters();
 }
 
 function CanvasClick() {
@@ -271,5 +272,27 @@ function DrawTimer() {
     c.fillText('Fin du temps imparti', canvas.width / 2, canvas.height / 2);
 
     circles = [];
+  }
+}
+
+function DrawLetters() {
+  const letter = ['c', "d", "e", "f", "g", "h", "a", "b"]
+
+  c.rotate(Math.PI)
+  for (i = 0; i < 8; i++) {
+    const x = (bigSize + bigSize / 16) * Math.cos((22.5 + i * 45) * (Math.PI / 180));
+    const y = (bigSize + bigSize / 16) * Math.sin((22.5 + i * 45) * (Math.PI / 180));
+    c.font = '30px Poppins'
+    c.textAlign = 'center';
+    c.fillText(letter[i], x, y);
+  }
+
+  const distances = [bigSize / 6, bigSize / 2, bigSize / 10 * 8.5]
+  for (i = 0; i < 3; i++) {
+    const x = (distances[i]) * Math.cos(-67.5 * (Math.PI / 180));
+    const y = (distances[i]) * Math.sin(-67.5 * (Math.PI / 180));
+    c.font = '30px Poppins'
+    c.textAlign = 'center';
+    c.fillText(i + 1, x, y);
   }
 }
