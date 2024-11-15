@@ -22,7 +22,7 @@ $players = $c->GetTopsPlayers();
 
       <div class="d-flex flex-column flex-sm-row">
         <button class="border-0 me-sm-5 me-0 text-start p-2">Classement général</button>
-        <label for="game-filter" class="visually-hidden">Classement par jeu</label>
+        <!-- <label for="game-filter" class="visually-hidden">Classement par jeu</label>
         <select id="game-filter" class="border-0 p-2 mt-3 mt-sm-0" aria-label="Classement par jeu">
           <option value="all" class="border-rounded-4">Classement par jeu</option>
           <option value="game1">Missing dot</option>
@@ -31,7 +31,7 @@ $players = $c->GetTopsPlayers();
           <option value="game4">Reaction</option>
           <option value="game5">Infinity Number</option>
         </select>
-        <button class="border-0 me-sm-5 me-0 text-start p-2 ms-3">Confirmer</button>
+        <button class="border-0 me-sm-5 me-0 text-start p-2 ms-3">Confirmer</button> -->
       </div>
       <div>
         <h2 class="mt-4 mt-sm-5 mb-3">Général</h2>
