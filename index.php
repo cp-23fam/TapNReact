@@ -26,7 +26,7 @@ if (!isset($_COOKIE['ID'])) {
               <div class="card-body p-0">
                 <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
                 <img class="card-img-top p-3" src="./images/missing-dot.png" alt="Image">
-                <p class="card-text p-3" style="color: #777777; font-weight: bold;">Deux cercles tournants affichent des points de couleurs différentes, mais seulement un point est manquant sur le disque de droite. À vous de le trouver</p>
+                <p class="card-text p-3" style="color: #777777; font-weight: bold;">The Missing Dot est un jeu de réflexe et de vision</p>
               </div>
           </a>
         </div>
@@ -37,7 +37,7 @@ if (!isset($_COOKIE['ID'])) {
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/flash-dot.png" alt="Image">
-              <p class="card-text p-3" style="color: #777777; font-weight: bold;">Deux cercles clignotent avec des couleurs différentes. Cliquez lorsque les deux cercles ont la même couleur. La rapidité est la clé.</p>
+              <p class="card-text p-3" style="color: #777777; font-weight: bold;">The Flashing Dot est un jeu de réflexe <br><span class="text-danger">/!\ Ce jeu n'est pas conseillé si vous êtes daltonien</span></p>
             </div>
           </div>
         </a>
@@ -48,7 +48,7 @@ if (!isset($_COOKIE['ID'])) {
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/missing-color.png" alt="Image">
-              <p class="card-text p-3" style="color: #777777; font-weight: bold;">Des cercles de couleurs différentes sont affichés, a vous de retenir les couleurs et trouer laquelle n’était pas affiché.</p>
+              <p class="card-text p-3" style="color: #777777; font-weight: bold;">The Missing Color est un jeu de mémoire ou il faut trouver la couleur manquante<br><span class="text-danger">/!\ Ce jeu n'est pas conseillé si vous êtes daltonien</p>
             </div>
           </div>
         </a>
@@ -59,7 +59,7 @@ if (!isset($_COOKIE['ID'])) {
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/reaction.png" alt="Image">
-              <p class="card-text p-3" style="color: #777777; font-weight: bold;">Un test de réaction, classique mais efficace.</p>
+              <p class="card-text p-3" style="color: #777777; font-weight: bold;">The Reaction est un jeu de réflexe très simple</p>
             </div>
           </div>
         </a>
@@ -70,7 +70,7 @@ if (!isset($_COOKIE['ID'])) {
             <div class="card-body p-0">
               <h3 class="card-title text-center p-3 fw-bold" style="background-color: #A3C2D0;">JOUER !</h3>
               <img class="card-img-top p-3" src="./images/infinite-number.png" alt="Image">
-              <p class="card-text p-3" style="color: #777777; font-weight: bold;">Un nombre est affiché à l’écran, à vous de le retenir. Seulement le nombre augmente d’une dizaine chaque round. Quel sera votre record ?</p>
+              <p class="card-text p-3" style="color: #777777; font-weight: bold;">The Infinite Number est un jeu de mémoire</p>
             </div>
           </div>
         </a>
