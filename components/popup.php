@@ -1,11 +1,8 @@
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
     }
 
     .container {
@@ -51,7 +48,6 @@
 
     .popup h2 {
         font-size: 38px;
-        font-weight: 500;
         margin: 30px 0 10px;
     }
 
