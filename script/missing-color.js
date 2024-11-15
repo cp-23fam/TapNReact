@@ -11,6 +11,8 @@ let missingIndex;
 
 let bigSize;
 
+let size = 50;
+
 class Circle {
   constructor(x, y, rayon, color) {
     this.x = x;
@@ -49,7 +51,9 @@ function init() {
   poppins.load().then(function (font) {
     document.fonts.add(font)
 
-    c.font = '50px Poppins'
+    GetLargestTextPossible('Cliquez pour commencer')
+
+    c.font = `${size}px Poppins`
     c.textAlign = 'center';
     c.fillText('Cliquez pour commencer', canvas.width / 2, canvas.height / 2);
     canvas.addEventListener('click', ClickHandle);
@@ -179,5 +183,14 @@ function ClickHandle() {
         }
       }
     }
+  }
+}
+
+function GetLargestTextPossible(texte) {
+  c.font = `${size}px Poppins`
+  while (c.measureText(texte).width > canvas.width) {
+    c.font = `${size}px Poppins`
+    c.measureText(texte)
+    size--;
   }
 }

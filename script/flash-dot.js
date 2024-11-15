@@ -4,6 +4,7 @@ var start;
 var forceWrong = Math.floor(Math.random() * 3) + 2;
 var forceCorrect = Math.floor(Math.random() * 5) + 8;
 var state = false;
+let size = 50;
 
 function init() {
   canvas = document.getElementById('game');
@@ -25,7 +26,9 @@ function init() {
   poppins.load().then(function (font) {
     document.fonts.add(font)
 
-    c.font = '50px Poppins'
+    GetLargestTextPossible('Cliquez pour commencer');
+
+    c.font = `${size}px Poppins`
     c.textAlign = 'center';
     c.fillText('Cliquez pour commencer', canvas.width / 2, canvas.height / 2);
     canvas.addEventListener('click', function () {
@@ -76,7 +79,7 @@ function Loop(zones, interval) {
         z[2] = colors[Math.floor(Math.random() * colors.length)];
       }
     }
-    DrawCircle(c, z[0], z[1], 200, z[2])
+    DrawCircle(c, z[0], z[1], canvas.width / 8, z[2])
   })
   forceWrong--;
   forceCorrect--;
@@ -93,7 +96,7 @@ function ClickEndGame(zones) {
     const time = new Date() - start;
 
     c.fillStyle = 'black';
-    c.font = '50px Poppins';
+    c.font = `${size}px Poppins`;
     c.textAlign = 'center';
     c.fillText(`${time}ms`, canvas.width / 2, canvas.height / 2);
     c.font = '30px Poppins';
@@ -122,5 +125,14 @@ function ClickEndGame(zones) {
     c.fillText(`Cliquez pour recommencer`, canvas.width / 2, canvas.height / 2 + 40);
     forceWrong = Math.floor(Math.random() * 3) + 2;
     forceCorrect = Math.floor(Math.random() * 6) + 10;
+  }
+}
+
+function GetLargestTextPossible(texte) {
+  c.font = `${size}px Poppins`
+  while (c.measureText(texte).width > canvas.width) {
+    c.font = `${size}px Poppins`
+    c.measureText(texte)
+    size--;
   }
 }

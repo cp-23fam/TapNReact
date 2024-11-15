@@ -12,6 +12,8 @@ let number = 40;
 let timer = 61;
 let clocks = [];
 
+let size = 100;
+
 function init() {
   circles = [];
 
@@ -34,7 +36,8 @@ function init() {
   poppins.load().then(function (font) {
     document.fonts.add(font);
 
-    c.font = '100px Poppins'
+    GetLargestTextPossible('Cliquez pour commencer');
+    c.font = `${size}px Poppins`
     c.textAlign = 'center';
     c.fillText('Cliquez pour commencer', canvas.width / 2, canvas.height / 2);
     canvas.addEventListener('click', CanvasClick)
@@ -251,11 +254,11 @@ function DrawTimer() {
   const timerX = canvas.width / 2
   const timerY = canvas.height / 10
 
-  c.clearRect(timerX - 100, timerY - 100, 200, 200);
-
   timer--;
-  c.font = '100px Poppins'
+  c.font = `${size}px Poppins`
   c.textAlign = 'center';
+
+  c.clearRect(timerX - c.measureText(timer).width / 2, timerY - (c.measureText(timer).fontBoundingBoxAscent + c.measureText(timer).fontBoundingBoxDescent) / 2, c.measureText(timer).width, c.measureText(timer).fontBoundingBoxAscent + c.measureText(timer).fontBoundingBoxDescent);
   c.fillText(timer, timerX, timerY);
 
   if (timer == 0) {
@@ -267,8 +270,6 @@ function DrawTimer() {
     })
 
     c.clearRect(0, 0, canvas.width, canvas.height)
-    c.font = '100px Poppins'
-    c.textAlign = 'center';
     c.fillText('Fin du temps imparti', canvas.width / 2, canvas.height / 2);
 
     circles = [];
@@ -282,7 +283,7 @@ function DrawLetters() {
   for (i = 0; i < 8; i++) {
     const x = (bigSize + bigSize / 16) * Math.cos((22.5 + i * 45) * (Math.PI / 180));
     const y = (bigSize + bigSize / 16) * Math.sin((22.5 + i * 45) * (Math.PI / 180));
-    c.font = '30px Poppins'
+    c.font = `${size / 3}px Poppins`
     c.textAlign = 'center';
     c.fillText(letter[i], x, y);
   }
@@ -291,8 +292,16 @@ function DrawLetters() {
   for (i = 0; i < 3; i++) {
     const x = (distances[i]) * Math.cos(-67.5 * (Math.PI / 180));
     const y = (distances[i]) * Math.sin(-67.5 * (Math.PI / 180));
-    c.font = '30px Poppins'
     c.textAlign = 'center';
     c.fillText(i + 1, x, y);
+  }
+}
+
+function GetLargestTextPossible(texte) {
+  c.font = `${size}px Poppins`
+  while (c.measureText(texte).width > canvas.width) {
+    c.font = `${size}px Poppins`
+    c.measureText(texte)
+    size--;
   }
 }

@@ -4,6 +4,8 @@ var time;
 var state = false;
 var canClick = false;
 
+let size = 50;
+
 function init() {
   canvas = document.getElementById('game');
   c = canvas.getContext('2d');
@@ -18,7 +20,9 @@ function init() {
   poppins.load().then(function (font) {
     document.fonts.add(font)
 
-    c.font = '50px Poppins'
+    GetLargestTextPossible('Cliquez pour commencer');
+
+    c.font = `${size}px Poppins`
     c.textAlign = 'center';
     c.fillText('Cliquez pour commencer', canvas.width / 2, canvas.height / 2);
     canvas.addEventListener('click', function () {
@@ -43,7 +47,7 @@ function init() {
         if (canClick) {
           c.clearRect(0, 0, canvas.width, canvas.height);
           c.fillStyle = 'black';
-          c.font = '50px Poppins'
+          c.font = `${size}px Poppins`
           c.textAlign = 'center';
           c.fillText(`${new Date() - time}ms`, canvas.width / 2, canvas.height / 2);
 
@@ -63,7 +67,7 @@ function init() {
         } else {
           c.clearRect(0, 0, canvas.width, canvas.height);
           c.fillStyle = 'black';
-          c.font = '50px Poppins'
+          c.font = `${size}px Poppins`
           c.textAlign = 'center';
           c.fillText(`Perdu`, canvas.width / 2, canvas.height / 2);
         }
@@ -72,4 +76,13 @@ function init() {
       }
     });
   })
+}
+
+function GetLargestTextPossible(texte) {
+  c.font = `${size}px Poppins`
+  while (c.measureText(texte).width > canvas.width) {
+    c.font = `${size}px Poppins`
+    c.measureText(texte)
+    size--;
+  }
 }

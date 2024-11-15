@@ -21,7 +21,8 @@ function init() {
   poppins.load().then(function (font) {
     document.fonts.add(font)
 
-    DrawText('Cliquez pour commencer', canvas.width / 2, canvas.height / 2, 50)
+    GetLargestTextPossible('Cliquez pour commencer');
+    DrawText('Cliquez pour commencer', canvas.width / 2, canvas.height / 2, fontSize)
     canvas.addEventListener('click', CanvasClick)
   })
 
@@ -85,7 +86,7 @@ function HandleSend() {
 
 function EnterInput() {
   c.clearRect(0, 0, canvas.width, canvas.height);
-  DrawText('Entrez le numéro', canvas.width / 2, canvas.height / 2, 50)
+  DrawText('Entrez le numéro', canvas.width / 2, canvas.height / 2, fontSize)
 }
 
 function CanvasClick() {
@@ -97,4 +98,13 @@ function CanvasClick() {
   button.addEventListener('click', HandleSend);
   canvas.removeEventListener('click', CanvasClick);
   setTimeout(EnterInput, 1500)
+}
+
+function GetLargestTextPossible(texte) {
+  c.font = `${fontSize}px Poppins`
+  while (c.measureText(texte).width > canvas.width) {
+    c.font = `${fontSize}px Poppins`
+    c.measureText(texte)
+    fontSize--;
+  }
 }
