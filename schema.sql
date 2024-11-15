@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `portes-ouvertes`.`points` (
   CONSTRAINT `fk_points_user`
     FOREIGN KEY (`user_idUser`)
     REFERENCES `portes-ouvertes`.`user` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 

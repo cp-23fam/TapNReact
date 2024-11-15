@@ -70,7 +70,8 @@ form > input {
   padding: 5px;
 }
 
-button[type="button"] {
+button[type="button"],
+#apply {
   background-color: #E0E0E0;
   color: #333333;
   border-radius: 5px;

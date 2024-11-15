@@ -12,7 +12,7 @@ $c = new Controller();
     </div>
     <div class="scores text-start px-1">
       <div class="container">
-        <button type="button" class="btn mt-2 p-2" onclick="openPopup('popup-rules')">Règles du jeu</button>
+        <button type="button" class="btn mt-lg-2 mt-0 p-2" onclick="openPopup('popup-rules')">Règles du jeu</button>
         <div class="popup" id="popup-rules">
           <?php
           if ($game == 1) {

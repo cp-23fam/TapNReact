@@ -45,8 +45,10 @@ class Database
     $stmt->bindParam(':user', $username, PDO::PARAM_STR);
     $stmt->execute();
 
-    $dbpwd = $stmt->fetch()['password'];
-    return $dbpwd == $password;
+    $dbpwd = $stmt->fetch();
+    if ($dbpwd != false) {
+      return $dbpwd['password'] == $password;
+    }
   }
 
   function ReturnUserPoints(int $idUser)
@@ -114,5 +116,54 @@ class Database
   function ReturnTopPlayers()
   {
     return $this->db->query("SELECT `username`, `date_naissance`, (`missing_dot` + `same_color` + `endless_number` + `wanted` + `pattern` + `reaction` + `missing_color`) AS `total`, `missing_dot`, `same_color`, `endless_number`, `wanted`, `pattern`, `reaction`, `missing_color` FROM `portes-ouvertes`.`user` INNER JOIN `portes-ouvertes`.`points` ON `user`.`idUser` = `points`.`user_idUser` ORDER BY `total` DESC LIMIT 5;")->fetchAll();
+  }
+
+  function ReturnUserInfos(int $idUser)
+  {
+    $stmt = $this->db->prepare("SELECT `username`, `date_naissance` FROM `portes-ouvertes`.`user` WHERE `idUser` = :id");
+    $stmt->bindParam(':id', $idUser, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll()[0];
+  }
+
+  function ChangeUsername(int $idUser, string $username)
+  {
+    $stmt = $this->db->prepare("UPDATE `portes-ouvertes`.`user` SET `username` = :username WHERE `idUser` = :id");
+    $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+    $stmt->bindParam(':id', $idUser, PDO::PARAM_INT);
+
+    $stmt->execute();
+  }
+
+  function ChangeDate(int $idUser, string $date)
+  {
+    $stmt = $this->db->prepare("UPDATE `portes-ouvertes`.`user` SET `date_naissance` = :date WHERE `idUser` = :id");
+    $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+    $stmt->bindParam(':id', $idUser, PDO::PARAM_INT);
+
+    $stmt->execute();
+  }
+
+  function ChangePassword(int $idUser, string $password)
+  {
+    $stmt = $this->db->prepare("UPDATE `portes-ouvertes`.`user` SET `password` = :pwd WHERE `idUser` = :id");
+    $stmt->bindParam(':pwd', $password, PDO::PARAM_STR);
+    $stmt->bindParam(':id', $idUser, PDO::PARAM_INT);
+
+    $stmt->execute();
+  }
+
+  function ResetScores(int $idUser)
+  {
+    $stmt = $this->db->prepare("UPDATE `portes-ouvertes`.`points` SET `missing_dot` = '0', `same_color` = '0', `endless_number` = '0', `wanted` = '0', `pattern` = '0', `reaction` = '0', `missing_color` = '0' WHERE (`idPoints` = :id);");
+    $stmt->bindParam(':id', $idUser, PDO::PARAM_INT);
+    $stmt->execute();
+  }
+
+  function DeleteAccount(int $idUser)
+  {
+    $stmt = $this->db->prepare("DELETE FROM `portes-ouvertes`.`user` WHERE `idUser` = :id");
+    $stmt->bindParam(':id', $idUser, PDO::PARAM_INT);
+    $stmt->execute();
   }
 }

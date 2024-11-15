@@ -10,11 +10,15 @@ if (isset($_POST['logout'])) {
   <div class="container-fluid">
     <div>
       <div class="d-flex w-100">
-        <a href="/index.php" class="nav-item px-0 px-md-2 me-0 me-sm-1">Accueil</a>
-        |
-        <a href="/scores.php" class="nav-item px-0 px-md-2 me-0 me-sm-1">Scores</a>
-        |
-        <a href="/profil.php" class="nav-item px-0 px-md-2 me-0 me-sm-1">Profil</a>
+        <?php if (isset($_COOKIE['ID'])): ?>
+          <a href="/index.php" class="nav-item px-0 px-md-2 me-0 me-sm-1">Accueil</a>
+          |
+          <a href="/scores.php" class="nav-item px-0 px-md-2 me-0 me-sm-1">Scores</a>
+          |
+          <a href="/profil.php" class="nav-item px-0 px-md-2 me-0 me-sm-1">Profil</a>
+        <?php else: ?>
+          <a href="#" class="nav-item px-0 px-md-2 me-0 me-sm-1">TapNReact</a>
+        <?php endif; ?>
 
         <?php if (isset($_COOKIE['ID'])): ?>
           <div class="text-end ms-auto me-2">
