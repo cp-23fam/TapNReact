@@ -7,7 +7,7 @@ class Database
 
   function __construct($user, $pwd)
   {
-    $this->db = new PDO('mysql:host=localhost;dbname=tib', $user, $pwd);
+    $this->db = new PDO('mysql:host=localhost;dbname=portes-ouvertes', $user, $pwd);
   }
 
   function CreateUser(string $username, string $password, string $birth)
