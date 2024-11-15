@@ -21,9 +21,9 @@ $c = new Controller();
             echo "<h2>Flash Dot</h2><p>Deux cercles clignotent avec des couleurs différentes. Cliquez lorsque les deux cercles ont la même couleur. La rapidité est la clé.</p>";
           } elseif ($game == 3) {
             echo "<h2>Infinite Number</h2><p>Un nombre est affiché à l’écran, à vous de le retenir. Seulement le nombre augmente d’une dizaine chaque round. Quel sera votre record ?</p>";
-          } elseif ($game == 4) {
+          } elseif ($game == 6) {
             echo "<h2>Reaction</h2><p>Un test de réaction, classique mais efficace.</p>";
-          } elseif ($game == 5) {
+          } elseif ($game == 7) {
             echo "<h2>Missing Color</h2><p>Des cercles de couleurs différentes sont affichés, a vous de retenir les couleurs et trouer laquelle n’était pas affiché.</p>";
           }
           ?>

@@ -9,6 +9,8 @@ let zones;
 let button;
 
 let number = 40;
+let timer = 61;
+let clocks = [];
 
 function init() {
   circles = [];
@@ -151,24 +153,30 @@ function Loop(zones, rotation) {
     TopCircles(zones[i][0], zones[i][1], 2 * Math.PI / 360 * rotation);
     Areas(zones[i][0], zones[i][1], 2 * Math.PI / 360 * rotation);
   }
+  DrawLetters();
 }
 
 function CanvasClick() {
   c.clearRect(0, 0, canvas.width, canvas.height)
+  number = 40;
+  timer = 61
 
+  document.getElementById('score').innerHTML = 0;
   RandomCircles();
 
-  setInterval(() => {
+  clocks.push(setInterval(() => {
     Loop(zones, rot)
-  }, 40);
+  }, 40));
+
+  clocks.push(setInterval(() => {
+    DrawTimer();
+  }, 1000));
 
   canvas.removeEventListener('click', CanvasClick);
   button.addEventListener('click', HandleSend);
 }
 
 function GetMissingZone() {
-  c.reset();
-
   let zone;
   let angle;
   let distance;
@@ -213,13 +221,78 @@ function HandleSend() {
   const input = document.getElementById('input');
 
   if (input.value == GetMissingZone()) {
-    document.getElementById('score').innerHTML = (number / 10 - 3) * 100;
+    const score = (number / 10 - 3) * 100;
+    const form = new FormData();
+
+    document.getElementById('score').innerHTML = score;
+    if (document.getElementById('highscore').innerHTML < score)
+      document.getElementById('highscore').innerHTML = score;
+
+    form.append("game", 1)
+    form.append("score", score)
+
+    fetch("/script/update-score.php", {
+      method: "POST",
+      body: form
+    })
     number += 10;
+    timer += 10;
 
     c.clearRect(0, 0, canvas.width, canvas.height)
     circles = [];
     RandomCircles();
 
     input.value = "";
+  }
+}
+
+function DrawTimer() {
+  c.setTransform(1, 0, 0, 1, 0, 0);
+  const timerX = canvas.width / 2
+  const timerY = canvas.height / 10
+
+  c.clearRect(timerX - 100, timerY - 100, 200, 200);
+
+  timer--;
+  c.font = '100px Poppins'
+  c.textAlign = 'center';
+  c.fillText(timer, timerX, timerY);
+
+  if (timer == 0) {
+
+    canvas.addEventListener('click', CanvasClick)
+
+    clocks.forEach((c) => {
+      clearInterval(c)
+    })
+
+    c.clearRect(0, 0, canvas.width, canvas.height)
+    c.font = '100px Poppins'
+    c.textAlign = 'center';
+    c.fillText('Fin du temps imparti', canvas.width / 2, canvas.height / 2);
+
+    circles = [];
+  }
+}
+
+function DrawLetters() {
+  const letter = ['c', "d", "e", "f", "g", "h", "a", "b"]
+
+  c.rotate(Math.PI)
+  for (i = 0; i < 8; i++) {
+    const x = (bigSize + bigSize / 16) * Math.cos((22.5 + i * 45) * (Math.PI / 180));
+    const y = (bigSize + bigSize / 16) * Math.sin((22.5 + i * 45) * (Math.PI / 180));
+    c.font = '30px Poppins'
+    c.textAlign = 'center';
+    c.fillText(letter[i], x, y);
+  }
+
+  const distances = [bigSize / 6, bigSize / 2, bigSize / 10 * 8.5]
+  for (i = 0; i < 3; i++) {
+    const x = (distances[i]) * Math.cos(-67.5 * (Math.PI / 180));
+    const y = (distances[i]) * Math.sin(-67.5 * (Math.PI / 180));
+    c.font = '30px Poppins'
+    c.textAlign = 'center';
+    c.fillText(i + 1, x, y);
   }
 }
